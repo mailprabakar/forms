@@ -97,7 +97,7 @@
 								<header>
 									<h2>Contact Me</h2>
 								</header>
-								<form name="contact" method="POST" netlify-honeypot="bot-field" data-netlify="true"></form>
+								<form name="contact" method="POST"  data-netlify="true"></form>
 									<div>
 										<input type="hidden" name="form-name" value="contact">
 										<div class="row">
@@ -120,6 +120,24 @@
 										</div>
 									</div>
 								</form>
+								<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+	document.querySelector("form").addEventListener("submit", handleSubmit);
+
+const handleSubmit = (e) => {
+  e.preventDefault()
+  let myForm = document.getElementById('pizzaOrder');
+  let formData = new FormData(myForm)
+  fetch('/', {
+    method: 'POST',
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString()
+  }).then(() => console.log('Form successfully submitted')).catch((error) =>
+    alert(error))
+}
+	
+	
+</script>
 							</article>
 							
 					</div>
